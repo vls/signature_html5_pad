@@ -1,13 +1,19 @@
 <?php
 require_once 'sigToSvg.php';
 
+$flagsave = false;
+
 $msg = "";
+if(array_key_exists('_save', $_GET)) {
+    $flagsave = true;
+}
 if(array_key_exists('output', $_POST)) {
     $output = $_POST['output'];
     if(!empty($output)) {
         $obj = new sigToSvg($output);
         $s = $obj->getImage();
-        file_put_contents("output/".time().".svg", $s);
+        $fname = $flagsave ? "output/".time().".svg" : "/dev/null";
+        file_put_contents($fname, $s);
         $msg = "保存成功";
     }
 }
