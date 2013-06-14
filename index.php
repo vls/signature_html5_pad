@@ -57,6 +57,8 @@ if(array_key_exists('output', $_POST)) {
                 var options = {};
                 options.defaultAction = "drawIt";
                 options.drawOnly = true;
+                options.lineTop = 0;
+                options.lineWidth = 0;
                 $('.container').signaturePad(options);
             });
 
