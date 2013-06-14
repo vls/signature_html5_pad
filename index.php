@@ -4,7 +4,7 @@ require_once 'sigToSvg.php';
 $flagsave = false;
 
 $msg = "";
-if(array_key_exists('_save', $_GET)) {
+if(file_exists("save.txt")){
     $flagsave = true;
 }
 if(array_key_exists('output', $_POST)) {
