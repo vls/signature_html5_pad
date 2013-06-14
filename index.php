@@ -28,15 +28,6 @@ if(array_key_exists('output', $_POST)) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript">
             $(function(){
-                var options = {};
-                options.defaultAction = "drawIt";
-                options.drawOnly = true;
-                $('.container').signaturePad(options);
-            });
-
-
-            $(document).ready( function(){
-                //Get the canvas &
                 var c = $('#can_sign');
                 var ct = c.get(0).getContext('2d');
                 //var container = $(c).parent();
@@ -63,7 +54,12 @@ if(array_key_exists('output', $_POST)) {
                 //Initial call 
                 respondCanvas();
 
-            }); 
+                var options = {};
+                options.defaultAction = "drawIt";
+                options.drawOnly = true;
+                $('.container').signaturePad(options);
+            });
+
         </script>
         <style type="text/css">
             body {
@@ -108,6 +104,7 @@ if(array_key_exists('output', $_POST)) {
     </head>
     <body>
 
+<div id="wrapper">
     <?php
     if($msg) {
 ?>
@@ -115,7 +112,7 @@ if(array_key_exists('output', $_POST)) {
 <?php
     }
     ?>
-<div id="wrapper">
+
     <div class="outer">
         <div class="inner">
 
