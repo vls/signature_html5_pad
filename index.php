@@ -60,10 +60,15 @@ if(array_key_exists('output', $_POST)) {
                 $('.container').signaturePad(options);
             });
 
+            function chk() {
+                $("#btn_submit").prop('disabled', true);
+            }
+
         </script>
         <style type="text/css">
             body {
                 text-align:center;
+                font-size: 22px;
             }
             div.container {
                 width: 90%;
@@ -117,15 +122,15 @@ if(array_key_exists('output', $_POST)) {
         <div class="inner">
 
     <div class="container">
-      <p class="drawItDesc">请签名</p>
+      <p class="drawItDesc">请在下面框内手写签名</p>
       <ul class="sigNav">
-        <li class="clearButton"><a href="#clear">清除</a></li>
+        <li class="clearButton"><a class="btn btn-large" href="#clear">清除</a></li>
       </ul>
       <div class="sig sigWrapper">
         <canvas id="can_sign" class="pad" width="800" height="400"></canvas>
       </div>
-    <form method="post" action="" class="sigPad">
-      <button type="submit" class="btn btn-primary">保存</button>
+    <form method="post" action="" class="sigPad" onsubmit="return chk();">
+      <button id="btn_submit" type="submit" class="btn btn-large btn-primary">保存</button>
         <input type="hidden" name="output" class="output">
     </form>
     </div>
@@ -133,5 +138,6 @@ if(array_key_exists('output', $_POST)) {
 </div>
 </div>
 
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=25260103" charset="UTF-8"></script>
     </body>
 </html>
